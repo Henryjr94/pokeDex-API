@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+        
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Name or ID">
+        <button id="btn-search"> Search </button>
+    </div>
+
+    <div id="main-container">
+
+         <div id="image-display">             
+             <img src="https://pngimg.com/uploads/pokeball/pokeball_PNG30.png"
+             id="sprite" alt="">
+         </div>
+         <div id="poke-info">
+
+             <div class="info" id="poke-name">
+
+                <div class="desk-box">
+                    
+                    <div class="desk-box-in" id="number">Number ####</div>
+                    <div class="desk-box-in" id="name">###</div>
+
+                 </div>
+
+             </div>
+
+             <div id="info-box">
+
+                 <div class="info" id="poke-race"></div>
+
+                 <div class="info" id="poke-desc">
+
+                     <div class="desk-box">
+                        <div class="desk-box-in" id="type">type:</div>
+                        <div class="desk-box-in" id="type-input">###</div>
+                     </div>
+
+                     <div class="desk-box">
+                        <div class="desk-box-in" id="height">height:</div>
+                        <div class="desk-box-in" id="height-input">###</div>
+                     </div>
+
+                     <div class="desk-box">
+                        <div class="desk-box-in" id="weight">weight:</div>
+                        <div class="desk-box-in" id="weight-input">###</div> 
+                     </div>
+
+                    
+                                                          
+                 </div>
+                 <div class="info" id="poke-trivia">###</div>
+             </div>
+         </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
