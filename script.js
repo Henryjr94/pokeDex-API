@@ -28,8 +28,6 @@ function boxUpdate (num, pokeID) {
 
             boxSelect[num].children[0].src = pokeData.sprites.other["official-artwork"].front_default
 
-            console.log(pokeData.name + "  " + pokeData.types.length)
-
             if (pokeData.types.length == 1){
                 boxSelect[num].children[1].innerHTML = `name: ${pokeData.name} <br> number: ${pokeData.id} <br> type: ${pokeData.types[0].type.name}`
             } else {
@@ -96,3 +94,4 @@ for (let i = 0; i < 8; i++){
     boxUpdate(i,i+1)
 
 }
+

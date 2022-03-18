@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeDex!</title>
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="pokemon-page-style.css">
+
+</head>
+<body>
+
+    <header>
+
+        <!-- <select name="generation" id="gen-box">
+
+            <option  value="gen-1">Red/Blue</option>
+            <option >Gold/Silver</option>
+            <option >Ruby/Saphire</option>
+            <option >Diamond/Pearl</option>
+
+        </select> -->
+
+        <div id="search-box">
+            <input type="text" id="search-input" placeholder="search by name or id">
+            <button id="search-btn">
+                Search
+            </button>
+        </div>
+          
+    </header>
+
+    <main>
+
+        <div id="main-box">
+
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="">
+
+            <div id="info-box">
+
+                <div id="poke-name">Pokeman</div>
+                <div id="poke-info-1">
+                    <div id="poke-types">
+                        <div id="type-1" class="type-box">####</div>
+                        <div id="type-2" class="type-box">####</div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+    <footer>
+        <button id="prev-page-btn">Prev</button>
+        <button id="next-page-btn">Next</button>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+</body>
+</html>
