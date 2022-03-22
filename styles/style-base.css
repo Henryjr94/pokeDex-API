@@ -7,13 +7,13 @@
     border: none;
     text-decoration: none;
     color: black;
+    text-transform: capitalize;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 * :focus{
     outline: none;
 }
-
 
 /* header style */
 @media screen {

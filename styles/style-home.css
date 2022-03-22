@@ -1,8 +1,14 @@
 /* main */
 @media screen {
     main{
-        height: 90vh;
+        display: flex;
         background: linear-gradient(42deg, rgba(255,255,255,1) 33%, rgba(255,138,138,0.5336426914153132) 100%);
+        justify-content: center;
+    }
+
+    #main-box{
+        max-width: 1000px;
+        height: 90vh;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -13,7 +19,7 @@
         overflow-y: scroll;
     }
     
-    main::-webkit-scrollbar {
+    #main-box::-webkit-scrollbar {
         display: none;
     }
 
