@@ -7,5 +7,7 @@ Curretly it uses the pokeAPI to get basic info and has some light CSS formating 
 Link to the page: https://henryjr94.github.io/pokeDex-API/
 
 Refereces:
+
 https://pokeapi.co/ (api used in the project)
+
 https://github.com/axios/axios (lib for API management)
