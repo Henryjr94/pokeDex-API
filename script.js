@@ -74,10 +74,10 @@ function boxUpdate (boxID, pokeID) {
 
         if (pokeData.types.length == 1){
 
-            boxSelect[boxID].children[1].children[0].innerHTML = `name: ${pokeData.name} <br> ID: ${pokeData.id} <br> type: ${pokeData.types[0].type.name}`
+            boxSelect[boxID].children[1].innerHTML = `name: ${pokeData.name} <br> ID: ${pokeData.id} <br> type: ${pokeData.types[0].type.name}`
         } else {
 
-            boxSelect[boxID].children[1].children[0].innerHTML = `name: ${pokeData.name} <br> ID: ${pokeData.id} <br> type: ${pokeData.types[0].type.name} / ${pokeData.types[1].type.name}`
+            boxSelect[boxID].children[1].innerHTML = `name: ${pokeData.name} <br> ID: ${pokeData.id} <br> type: ${pokeData.types[0].type.name} / ${pokeData.types[1].type.name}`
         }
     })
 
