@@ -3,24 +3,59 @@
 // const gen_3 = 386
 const gen_4 = 493
 const currentGen = gen_4
+const typeColor =
+{normal: "#ACAC9B",fire: "#FF4422",water: "#3399FF",
+eletric: "#FFCC33",grass: "#77CC55", ice: "#66CCFF",
+fighting: "#BB5544", poison: "#AA5599", ground: "#DDBB55",
+flying: "#8899FF", psychic: "#FF5599", bug: "#AABB22",
+rock: "#BBAA66", ghost: "#6666BB", dragon: "#7766EE",
+dark: "#775544", steel: "#AAAABB", fairy: "#EE99EE"
+}
 
 // Query for nav buttons
 const nextPageBtn = document.querySelector("#next-page-btn")
 const prevPageBtn = document.querySelector("#prev-page-btn")
 
-// Query for pokemon containers
-const pokemonBox1 = document.querySelector("#pokemon-box-1")
-const pokemonBox2 = document.querySelector("#pokemon-box-2")
-const pokemonBox3 = document.querySelector("#pokemon-box-3")
-const pokemonBox4 = document.querySelector("#pokemon-box-4")
-const pokemonBox5 = document.querySelector("#pokemon-box-5")
-const pokemonBox6 = document.querySelector("#pokemon-box-6")
-const pokemonBox7 = document.querySelector("#pokemon-box-7")
-const pokemonBox8 = document.querySelector("#pokemon-box-8")
+// Query for containers
+const pokemonBox = document.querySelectorAll(".pokemon-box")
+const focusBox = document.querySelector("#focus-box")
+const mainBox = document.querySelector("#main-box")
+const type1 = document.querySelector("#type-1")
+const type2 = document.querySelector("#type-2")
+const pokeStats = document.querySelector("#poke-stats")
 
 // Variable to manipulate the containers
-const boxSelect = [pokemonBox1,pokemonBox2,pokemonBox3,pokemonBox4,pokemonBox5,pokemonBox6,pokemonBox7,pokemonBox8]
+const boxSelect = []
+for (i = 0; i < pokemonBox.length; i++){
+    boxSelect.push(pokemonBox[i])
+}
 let currentPage = 0
+
+function focusBoxUpdate (id) {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    .then(response => {     
+
+        const pokeData = response.data
+
+        focusBox.children[0].src = pokeData.sprites.other["official-artwork"].front_default
+        focusBox.children[1].children[0].innerText = pokeData.name
+        type1.innerText = pokeData.types[0].type.name
+        type1.style.backgroundColor = typeColor[pokeData.types[0].type.name]
+
+        if (pokeData.types.length == 2){
+            type2.innerText = pokeData.types[1].type.name
+            type2.style.visibility = "visible"
+            type2.style.backgroundColor = typeColor[pokeData.types[1].type.name]
+        }   
+        else{
+            type2.style.visibility = "hidden"
+        }
+
+        for (i = 0; i < 6; i++)
+        pokeStats.children[i].innerText = `${pokeData.stats[i].stat.name}: ${pokeData.stats[i].base_stat}`
+
+    })
+}
 
 // function to update the page pokemon basic info
 function boxUpdate (boxID, pokeID) {
@@ -34,31 +69,31 @@ function boxUpdate (boxID, pokeID) {
         const pokeData = response.data
 
         boxSelect[boxID].children[0].src = pokeData.sprites.other["official-artwork"].front_default
+        boxSelect[boxID].children[2].innerHTML = pokeData.id
+
 
         if (pokeData.types.length == 1){
 
-            boxSelect[boxID].children[1].innerHTML = `name: ${pokeData.name} <br> ID: ${pokeData.id} <br> type: ${pokeData.types[0].type.name}`
+            boxSelect[boxID].children[1].children[0].innerHTML = `name: ${pokeData.name} <br> ID: ${pokeData.id} <br> type: ${pokeData.types[0].type.name}`
         } else {
 
-            boxSelect[boxID].children[1].innerHTML = `name: ${pokeData.name} <br> ID: ${pokeData.id} <br> type: ${pokeData.types[0].type.name} / ${pokeData.types[1].type.name}`
+            boxSelect[boxID].children[1].children[0].innerHTML = `name: ${pokeData.name} <br> ID: ${pokeData.id} <br> type: ${pokeData.types[0].type.name} / ${pokeData.types[1].type.name}`
         }
     })
 
-    axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokeID}`)
-    .then(response => {
-        //.then is a promise(code will not stop at this point)
+    // axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokeID}`)
+    // .then(response => {
+    //     //.then is a promise(code will not stop at this point)
 
-        const pokeData = response.data
+    //     const pokeData = response.data
 
-        boxSelect[boxID].children[0].style.backgroundColor = pokeData.color.name
-    })
+    //     boxSelect[boxID].children[0].style.backgroundColor = pokeData.color.name
+    // })
 
 }
 
 // initial page update with info, starting from id "1"
-for (let i = 0; i < 8; i++){
-    boxUpdate(i,i+1)
-}
+boxSelect.map((e,i) => boxUpdate(i,i+1))
 
 // checks if the next page have itens to be placed
 // updates the containers with info using boxUpdate() function
@@ -110,15 +145,15 @@ prevPageBtn.onclick = () => {
     }    
 }
 
-function addElement () {
-    axios.get(`https://pokeapi.co/api/v2/pokemon-species/${1}`)
-    .then(response => {
-        //.then is a promise(code will not stop at this point)
+// goes through every container to check for mouse click
+boxSelect.map((e,i) => boxSelect[i].onclick = () => {
+    let currentPoke = boxSelect[i].children[2].innerHTML
+    focusBox.style.visibility = "visible"
+    focusBoxUpdate(currentPoke)
 
-        const pokeData = response.data
+})
 
-        pokemonBox1.children[0].style.backgroundColor = pokeData.color.name
-    })
+focusBox.onclick = () => {
+    focusBox.style.visibility = "hidden"
+    type2.style.visibility = "hidden"
 }
-
-addElement()
