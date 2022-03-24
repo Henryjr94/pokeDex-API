@@ -1,11 +1,11 @@
 // const gen_1 = 151
 // const gen_2 = 251
 // const gen_3 = 386
-const gen_4 = 493
+const gen_4 = 898
 const currentGen = gen_4
 const typeColor =
 {normal: "#ACAC9B",fire: "#FF4422",water: "#3399FF",
-eletric: "#FFCC33",grass: "#77CC55", ice: "#66CCFF",
+electric: "#FFCC33",grass: "#77CC55", ice: "#66CCFF",
 fighting: "#BB5544", poison: "#AA5599", ground: "#DDBB55",
 flying: "#8899FF", psychic: "#FF5599", bug: "#AABB22",
 rock: "#BBAA66", ghost: "#6666BB", dragon: "#7766EE",
