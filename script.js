@@ -4,7 +4,8 @@
 const gen_4 = 898
 const currentGen = gen_4
 const typeColor =
-{normal: "#ACAC9B",fire: "#FF4422",water: "#3399FF",
+{
+normal: "#ACAC9B",fire: "#FF4422",water: "#3399FF",
 electric: "#FFCC33",grass: "#77CC55", ice: "#66CCFF",
 fighting: "#BB5544", poison: "#AA5599", ground: "#DDBB55",
 flying: "#8899FF", psychic: "#FF5599", bug: "#AABB22",
@@ -15,6 +16,8 @@ dark: "#775544", steel: "#AAAABB", fairy: "#EE99EE"
 // Query for nav buttons
 const nextPageBtn = document.querySelector("#next-page-btn")
 const prevPageBtn = document.querySelector("#prev-page-btn")
+const searchInput = document.querySelector("#search-input")
+const searchBtn = document.querySelector("#search-btn")
 
 // Query for containers
 const pokemonBox = document.querySelectorAll(".pokemon-box")
@@ -92,6 +95,14 @@ function boxUpdate (boxID, pokeID) {
 
 }
 
+// search function
+searchBtn.onclick = () => {
+    console.log(searchInput.value)
+    focusBox.style.visibility = "visible"
+    focusBoxUpdate(searchInput.value)  
+    searchInput.value = ""  
+}
+
 // initial page update with info, starting from id "1"
 boxSelect.map((e,i) => boxUpdate(i,i+1))
 
@@ -150,7 +161,6 @@ boxSelect.map((e,i) => boxSelect[i].onclick = () => {
     let currentPoke = boxSelect[i].children[2].innerHTML
     focusBox.style.visibility = "visible"
     focusBoxUpdate(currentPoke)
-
 })
 
 focusBox.onclick = () => {
