@@ -14,12 +14,17 @@ O objetivo desse projeto 'e criar uma pokeDex para melhor entender como usar API
 Atualmente o app consegue listar todos os pokemons usand PokeApi e procurar pokemon por nome ou ID.
 
 ## Planned features/changes:
-- add a graphic element for pokemon stats
-- improve the search bar using "get"
-- add a way to browse by page and dynamically add/remove containers according to resolution
-- clean visual
-- use bootstraps
+- Feat: add a graphic element for pokemon stats
+- Change:improve the search bar using "get"
+- Feat: add a way to browse by page and dynamically add/remove containers according to resolution
+- Change: clean visual
+- Feat: use bootstraps
 
 ## Refereces:
 - https://pokeapi.co/ (api used in the project)
 - https://github.com/axios/axios (lib for API management)
+
+## Final notes
+LinkedIn: https://www.linkedin.com/in/henry-okamura/
+
+feel free to add me
