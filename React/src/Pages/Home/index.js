@@ -43,9 +43,13 @@ function Home() {
     }
 
     function getPokeData(pokeID) {
+        if(pokeID > 898)
+        pokeID = 898
         // getPokeData gets pokemon info by a provided id or name, then feeds it into pokeData(var:array)
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeID}`).then(res => {
                 
+
+
                 let pokeDB = res.data 
                 
                 setPokeData(arr => [...arr, pokeDB])
